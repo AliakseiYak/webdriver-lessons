@@ -1,9 +1,13 @@
 package page_objects;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.security.Key;
 
 /**
  * Created by admin on 26.04.2016.
@@ -14,8 +18,11 @@ public class DeveloperApplyPage {
     @FindBy(css = ".modal-content-header.is-centered.is-medium")
     WebElement heading;
 
+    @FindBy(css = ".input.has-default_value")
+    WebElement defaultValue;
+
     @FindBy(xpath = ".//*[@id='new_talent']/section/div/div[1]/fieldset/div[2]/div[2]/div[1]/div[1]")
-    private WebElement joinToptalButton;
+    private WebElement setDeveloper;
 
     @FindBy(id="talent_email")
     WebElement developer_email;
@@ -42,6 +49,10 @@ public class DeveloperApplyPage {
 
         //Initialise Elements
         PageFactory.initElements(driver, this);
+    }
+    public void setDeveloperOption(){
+       defaultValue.click();
+       setDeveloper.click();
     }
 
     public void setDeveloper_email(String email){
@@ -72,8 +83,9 @@ public class DeveloperApplyPage {
     public void clickOnJoin(){
         join_toptal_button.click();
     }
+
     public boolean isPageOpened(){
         //Assertion
-        return heading.getText().toString().contains("Apply to join our network as a developer");
+        return heading.getText().toString().contains("Top Freelancers");
     }
 }

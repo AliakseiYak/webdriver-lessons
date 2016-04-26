@@ -47,8 +47,9 @@ public class ApplyAsDeveloper {
         Assert.assertTrue(applyPage.isPageOpened());
 
         //Fill up data
-        applyPage.setDeveloper_email("dejan@toptal.com");
-        applyPage.setDeveloper_full_name("Dejan Zivanovic Automated Test");
+        applyPage.setDeveloperOption();
+        applyPage.setDeveloper_email("ayakimovich@gmail.com");
+        applyPage.setDeveloper_full_name("Alex Automated Test");
         applyPage.setDeveloper_password("password123");
         applyPage.setDeveloper_password_confirmation("password123");
         applyPage.setDeveloper_skype("automated_test_skype");
