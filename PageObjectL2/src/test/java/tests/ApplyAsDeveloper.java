@@ -8,7 +8,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import page_objects.DeveloperApplyPage;
-import page_objects.DeveloperPortalPage;
 import page_objects.HomePage;
 
 /**
@@ -20,7 +19,7 @@ public class ApplyAsDeveloper {
     @BeforeTest
 
     public void setup(){
-        //use FF Driver
+
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
     }
@@ -29,19 +28,9 @@ public class ApplyAsDeveloper {
     public void applyAsDeveloper() {
         //Create object of HomePage Class
         HomePage home = new HomePage(driver);
-        home.clickOnDeveloperApplyButton();
 
-        //Create object of DeveloperPortalPage
-        DeveloperPortalPage devportal= new DeveloperPortalPage(driver);
-
-        //Check if page is opened
-        Assert.assertTrue(devportal.isPageOpened());
-
-        //Click on Join Toptal
-        devportal.clikOnJoin();
-
-        //Create object of DeveloperApplyPage
-        DeveloperApplyPage applyPage =new DeveloperApplyPage(driver);
+        //Create page object of DeveloperApplyPage after clicking Developer Apply button on the Home page
+        DeveloperApplyPage applyPage = home.clickOnDeveloperApplyButton();
 
         //Check if page is opened
         Assert.assertTrue(applyPage.isPageOpened());

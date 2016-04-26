@@ -1,20 +1,19 @@
 package page_objects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * Created by admin on 25.04.2016.
+ * Created by AliakseiYak on 25.04.2016.
  */
 public class HomePage {
 
     private WebDriver driver;
 
     //Page URL
-    private static String PAGE_URL="https://www.toptal.com";
+    private static String PAGE_URL = "https://www.toptal.com";
 
     //Locators
 
@@ -23,16 +22,17 @@ public class HomePage {
     private WebElement developerApplyButton;
 
     //Constructor
-    public HomePage(WebDriver driver){
-        this.driver=driver;
+    public HomePage(WebDriver _driver) {
+        this.driver = _driver;
         driver.get(PAGE_URL);
         //Initialise Elements
         PageFactory.initElements(driver, this);
     }
 
-    public void clickOnDeveloperApplyButton(){
+    public DeveloperApplyPage clickOnDeveloperApplyButton() {
 
         developerApplyButton.click();
+        return new DeveloperApplyPage(driver);
 
     }
 }
